@@ -1,0 +1,42 @@
+{{!
+    This file is part of the WET-BOEW-Moodle (GCWeb) theme for Moodle - http://moodle.org/
+
+    WET-BOEW-Moodle (GCWeb) is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    WET-BOEW-Moodle (GCWeb) is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_gcweb/head
+
+    Page head.
+}}
+{{{ output.doctype }}}
+<html class="no-js" {{{ htmlattributes }}}>
+<head>
+    <meta charset="utf-8">
+    <!-- Web Experience Toolkit (WET) / wet-boew.github.io/wet-boew/License-en.html -->
+    <!-- Boîte à outils de l'expérience Web (BOEW) / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>{{{ output.pagetitle }}}</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <link href="{{{ output.favicon }}}" rel="icon" type="image/x-icon" class="wb-init wb-favicon-inited">
+    <link rel="apple-touch-icon" sizes="57x57 72x72 114x114 144x144 150x150" class="wb-favicon" href="{{{ wetboew }}}/GCWeb/assets/favicon-mobile.png">
+    <link rel="stylesheet" href="{{{ wetboew }}}/GCWeb/css/theme.min.css">
+    <link rel="stylesheet" href="{{{ wetboew }}}/cdts/cdtsfixes.css">
+    <link rel="stylesheet" href="{{{ wetboew }}}/cdts/cdtsapps.css">
+    <!-- STANDARD HEAD STARTS HERE -->
+    {{{ standard_head_html }}}
+    <!-- STANDARD HEAD ENDS HERE -->
+    <link rel="stylesheet" href="{{{ wetboew }}}/../style/wet-boew-moodle.css">
+    <style>
+
+    </style>
+</head>

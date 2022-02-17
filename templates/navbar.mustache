@@ -1,0 +1,29 @@
+{{!
+    This file is part of the WET-BOEW-Moodle (GCWeb) theme for Moodle - http://moodle.org/
+    
+    WET-BOEW-Moodle (GCWeb) is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    
+    WET-BOEW-Moodle (GCWeb) is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_gcweb/navbar
+
+    This template renders the top navbar.
+}}
+                    <div id="navbar" class="context-header-settings-menu">
+                        {{{ output.settings_menu }}} {{{ pagebutton }}}
+                        {{#shownavdrawer}}
+                        <div data-region="drawer-toggle" class="d-inline-block mr-3">
+                            <button aria-expanded="{{#navdraweropen}}true{{/navdraweropen}}{{^navdraweropen}}false{{/navdraweropen}}" aria-controls="nav-drawer" type="button" class="btn nav-link float-sm-right mr-1 btn-light bg-gray" data-action="toggle-drawer" data-side="left" data-preference="drawer-open-nav">{{#pix}}i/menubars{{/pix}}<span class="sr-only">{{#str}}sidepanel, core{{/str}}</span></button>
+                        </div>
+                        {{/shownavdrawer}}
+                    </div>

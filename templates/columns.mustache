@@ -1,0 +1,106 @@
+{{!
+    This file is part of the WET-BOEW-Moodle (GCWeb) theme for Moodle - http://moodle.org/
+    
+    WET-BOEW-Moodle (GCWeb) is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    
+    WET-BOEW-Moodle (GCWeb) is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_gcweb/columns
+
+    2 column layout template.
+}}
+{{> theme_gcweb/head }}
+<body vocab="http://schema.org/" typeof="WebPage" {{{ bodyattributes }}}>
+    {{>core/local/toast/wrapper}}
+    {{{ output.standard_top_of_body_html }}}
+    {{{ output.full_header }}}
+
+    <div id="page-wrapper">
+        <main role="main" property="mainContentOfPage" class="container">
+
+            <div id="page" class="container-fluid">
+                {{! Extra buttons and gear menu }}
+                {{>theme_gcweb/navbar}}
+                {{#settingsmenu}}
+                <div class="context-header-settings-menu">
+                    {{{settingsmenu}}}
+                </div>
+                {{/settingsmenu}}
+                <h1 id="wb-cont"{{{ pageheadinghidden }}}>{{{ pageheading }}}</h1>
+                <div id="page-content" class="row">
+                    {{#contentpreblocks}}
+                    <div id="region-content-pre" class="block-content-pre row">
+                        {{{ contentpreblocks }}}
+                    </div>
+                    {{/contentpreblocks}}
+                    <div id="region-main-box" class="col{{#hasblocks}} col-xl-9 col-lg-8 col-md-7{{/hasblocks}}">
+                        {{#hasregionmainsettingsmenu}}
+                        <div id="region-main-settings-menu" class="d-print-none">
+                            <div>{{{ output.region_main_settings_menu }}}</div>
+                        </div>
+                        {{/hasregionmainsettingsmenu}}
+                        <section id="region-main" class="region-main-content">
+                            {{{ alerts }}}
+                            {{#hasregionmainsettingsmenu}}
+                            <div class="region_main_settings_menu_proxy"></div>
+                            {{/hasregionmainsettingsmenu}}
+                            {{{ output.course_content_header }}}
+                            {{{ output.main_content }}}
+                            {{{ output.activity_navigation }}}
+                            {{{ output.course_content_footer }}}
+                        </section>
+                    </div>
+                    {{#hasblocks}}
+                    <div id="side-blocks" class="col-xl-3 col-lg-4 col-md-5">
+                        <section data-region="blocks-column" class="hidden-print">
+                            {{#haspreblocks}}
+                            {{{ sidepreblocks }}}
+                            {{/haspreblocks}}
+                            {{#haspostblocks}}
+                            {{{ sidepostblocks }}}
+                            {{/haspostblocks}}
+                        </section>
+                    </div>
+                    {{/hasblocks}}
+                    {{#contentpostblocks}}
+                    <div id="region-content-post" class="block-content-post row">
+                        {{{ contentpostblocks }}}
+                    </div>
+                    {{/contentpostblocks}}
+                </div>
+            </div>
+            {{{ output.standard_after_main_region_html }}}
+            <div class="pagedetails">
+                <div class="row">
+                    {{#showproblembutton}}
+                    {{#problembuttonurl}}
+                    <div class="col-xl-4 col-lg-6 col-md-9 col-sm-12"><a href="{{{ problembuttonurl }}}" class="btn btn-default btn-center">{{# str }} reportaproblem, theme_gcweb {{/ str }}</a></div>
+                    {{/problembuttonurl}}
+                    {{^problembuttonurl}}
+                    {{> theme_gcweb/problembutton }}
+                    {{/problembuttonurl}}
+                    {{/showproblembutton}}
+                    {{#showsharebutton}}
+                    <div class="wb-share col-md-3  col-sm-4 col-lg-offset-5 col-md-offset-4 col-sm-offset-2" data-wb-share='{"lnkClass": "btn btn-default btn-block"}'></div>
+                    {{/showsharebutton}}
+                </div>
+                <dl id="wb-dtmd">
+                    <dt>{{# str }} datemodified, theme_gcweb {{/ str }}&#32;</dt>
+                    <dd><time property="dateModified">{{{ lastmodified }}}</time></dd>
+                </dl>
+            </div>
+        </main>
+        {{> theme_gcweb/footer }}
+    </div>
+</body>
+</html>

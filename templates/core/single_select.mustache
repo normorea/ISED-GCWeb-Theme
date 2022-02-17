@@ -1,0 +1,53 @@
+{{!
+    This file is part of the WET-BOEW-Moodle (GCWeb) theme for Moodle - http://moodle.org/
+    
+    WET-BOEW-Moodle (GCWeb) is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    
+    WET-BOEW-Moodle (GCWeb) is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template gcweb/single_select
+
+    Moodle template for a single select submit form - configured for optimal accessibility.
+}}
+
+<div class="{{classes}} d-inline-block">
+    <form method="{{method}}" action="{{action}}" class="form-inline" id="{{formid}}">
+        {{#params}}
+            <input type="hidden" name="{{name}}" value="{{value}}">
+        {{/params}}
+        {{#label}}
+            <label for="{{id}}"{{#labelattributes}} {{name}}="{{value}}"{{/labelattributes}}>
+                {{{label}}}
+            </label>
+        {{/label}}
+        {{#helpicon}}
+            {{>core/help_icon}}
+        {{/helpicon}}
+        <select {{#attributes}}{{name}}="{{value}}" {{/attributes}} id="{{id}}" class="custom-select {{classes}}" name="{{name}}">
+            {{#options}}
+                {{#optgroup}}
+                    <optgroup label="{{name}}">
+                    {{#options}}
+                    <option value="{{value}}" {{#selected}}selected{{/selected}}>{{{name}}}</option>
+                    {{/options}}
+                    </optgroup>
+                {{/optgroup}}
+                {{^optgroup}}
+                    <option {{ignore}} value="{{value}}" {{#selected}}selected{{/selected}}>{{{name}}}</option>
+                {{/optgroup}}
+            {{/options}}
+        </select>
+        <input type="submit" class="btn btn-secondary" value="{{#str}}go, core{{/str}}">
+    </form>
+</div>
+
