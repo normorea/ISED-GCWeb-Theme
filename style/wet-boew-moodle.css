@@ -1607,3 +1607,8 @@ https://intranet.ised-isde.canada.ca/campus/mod/lesson/view.php?id=112
 
 #surveyform th, #surveyform td {display:block;}
 #surveyform th, #surveyform td {display:block; max-width: 490px}
+
+/* https://jira.ised-isde.canada.ca/browse/CIOMELP-8 
+Fixes H5p Theme compatibility issues
+*/
+#page-h5p-embed .container-fluid { display: initial !important; } 
