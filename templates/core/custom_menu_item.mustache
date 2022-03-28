@@ -21,7 +21,7 @@
 }}
 {{^divider}}
 {{#haschildren}}
-<li role="presentation">
+<li role="presentation" >
     <a class="item" aria-haspopup="true" href="#" role="menuitem">
         {{{text}}}
     </a>
@@ -43,3 +43,36 @@
 </li>
 {{/haschildren}}
 {{/divider}}
+
+<script>
+
+// Sort "My Courses" and perhaps other menus
+
+$(function() {
+    $.fn.sortList = function() {
+    var mylist = $(this);
+    var listitems = $('li', mylist).get();
+    listitems.sort(function(a, b) {
+        var compA = $(a).text().toUpperCase();
+        var compB = $(b).text().toUpperCase();
+        return (compA < compB) ? -1 : 1;
+    });
+    $.each(listitems, function(i, itm) {
+        mylist.append(itm);
+    });
+   }
+	$('nav ul li a').each(function(index){
+		//console.log( $( this ).text().indexOf("My courses") );
+		if( $( this ).text().indexOf("My courses") >= 1){
+			//$( this ).text("FOUND LINK");
+			
+			$( this ).parent().find("ul").sortList();
+			
+		}
+		
+		
+	});
+
+});
+
+</script>
